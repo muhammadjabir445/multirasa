@@ -1,0 +1,10 @@
+SELECT
+  kode_barang,
+  nama_barang,
+  SUM(CASE WHEN tanggal_penjualan = '2023-11-01' THEN total_penjualan ELSE 0 END) AS '01/11/2023',
+  SUM(CASE WHEN tanggal_penjualan = '2023-11-02' THEN total_penjualan ELSE 0 END) AS '02/11/2023',
+  SUM(CASE WHEN tanggal_penjualan = '2023-11-03' THEN total_penjualan ELSE 0 END) AS '03/11/2023',
+  SUM(CASE WHEN tanggal_penjualan = '2023-11-04' THEN total_penjualan ELSE 0 END) AS '04/11/2023',
+  SUM(CASE WHEN tanggal_penjualan = '2023-11-05' THEN total_penjualan ELSE 0 END) AS '05/11/2023'
+FROM penjualan
+GROUP BY kode_barang, nama_barang;
